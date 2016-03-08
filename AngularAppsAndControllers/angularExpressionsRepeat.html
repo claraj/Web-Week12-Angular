@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Repeating things with Angular</title>
-
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
-
-
 </head>
+
 <body>
 
-<!--Give your app a name, and add a controller. Note all our elements are in this div-->
+<!--Give your app a name, and add a controller. Note all our elements are inside this div-->
 <div ng-app="myApp" ng-controller="controller">
 
   <h2>Add Tasks to List</h2>
   <form>
-    <label>Enter task</label>
-    <!--Bind the data in the input box to the variable 'task'-->
-    <input type="text" ng-model="task">
+    <label>Enter task
+      <!--Bind the data in the input box to the variable 'task'-->
+      <input type="text" ng-model="task">
+    </label>
     <br>
 
     <!--ng-click links the click event to an angular function,
@@ -25,6 +24,7 @@
     variable to the function - the task variable holds the
     value of the input box; set up by using ng-model.  -->
     <input type="submit" ng-click="addTask(task)">
+
   </form>
 
   <h2>Your Task List</h2>
@@ -32,17 +32,17 @@
   <!--Create an unordered list, but have Angular create the li elements from the
   tasklist array. See where this comes from in the controller? -->
   <ul>
-    <!--Repeats for everything in the tasklist. Loops over tasklist -->
+    <!--Repeats for everything in the tasklist.
+    Loops over tasklist and creates a li for each item in the array -->
     <li ng-repeat="task in tasklist">
       {{ task }}
     </li>
-
   </ul>
 
   <!--Before any tasks are added, the list is empty, so display this message -->
   <p ng-show="tasklist.length == 0">No tasks to do!</p>
 
-</div>
+</div>  <!-- End of the ng-app div -->
 
 <!--Now we need to extract the Angular logic into a separate script-->
 <script>
