@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math with Angular</title>
+
+  <!--Include Angular-->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+</head>
+<body>
+
+<!--Define the part of your document that you want Angular to operate on.-->
+<!--Define this div as an angular app using ng-app directive. Leave the name empty for now.
+<!--Can also define ng-app in the body or html or any other containing element. -->
+
+<div ng-app="">
+  <h2>Shopping Cart</h2>
+  <form>
+    <label>Enter price of item</label>
+    <input type="number" ng-model="price">  <!-- ng-model binds the value of the input box to the variable 'price' -->
+    <br>
+    <label>Enter quantity of item</label>
+    <input type="number" ng-model="quantity">  <!-- And this ng-model binds this input box to 'quantity -->
+  </form>
+
+  <!-- Can do math or other processing with these variables. Angular will evaluate
+  any expressions in the {{ }} brackets. You can't write logic (loops, if statements) but you can do math.
+  -->
+  <h2>The total price is {{ price * quantity }}</h2>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math with Angular</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+</head>
+<body>
+
+<div ng-app="">
+  <h2>Shopping Cart</h2>
+  <form>
+    <label>Enter price of item</label>
+    <input type="number" ng-model="price">
+    <br>
+    <label>Enter quantity of item</label>
+    <input type="number" ng-model="quantity">
+  </form>
+
+  <!--Notice the ng-show directive. This means only show this element if the expression is true.
+   So, this h2 is only show if "(price != undefined) && (quantity != undefined)" is true.
+   In other words, while the price or the quantity is undefined - not filled in -
+   this element is not shown (hidden).  There's also a ng-hide directive which does the opposite,
+   sometimes the logic is easier to write. -->
+  <h2 ng-show=" (price != undefined) && (quantity != undefined) ">
+    The total price is {{ price * quantity }}
+  </h2>
+
+
+  <!-- Using ng-hide - this commented out code behaves the same as the previous H2. -->
+  <!--
+
+  <h2 ng-hide=" (price == undefined) || (quantity == undefined) ">
+    The total price is {{ price * quantity }}
+  </h2>
+
+  -->
+
+
+
+</div>
+
+</body>
+</html>

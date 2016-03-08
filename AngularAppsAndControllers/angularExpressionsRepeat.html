@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Repeating things with Angular</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+
+</head>
+<body>
+
+<!--Give your app a name, and add a controller. Note all our elements are in this div-->
+<div ng-app="myApp" ng-controller="controller">
+
+  <h2>Add Tasks to List</h2>
+  <form>
+    <label>Enter task</label>
+    <!--Bind the data in the input box to the variable 'task'-->
+    <input type="text" ng-model="task">
+    <br>
+
+    <!--ng-click links the click event to an angular function,
+    defined in the controller. Notice that you can pass the task
+    variable to the function - the task variable holds the
+    value of the input box; set up by using ng-model.  -->
+    <input type="submit" ng-click="addTask(task)">
+  </form>
+
+  <h2>Your Task List</h2>
+
+  <!--Create an unordered list, but have Angular create the li elements from the
+  tasklist array. See where this comes from in the controller? -->
+  <ul>
+    <!--Repeats for everything in the tasklist. Loops over tasklist -->
+    <li ng-repeat="task in tasklist">
+      {{ task }}
+    </li>
+
+  </ul>
+
+  <!--Before any tasks are added, the list is empty, so display this message -->
+  <p ng-show="tasklist.length == 0">No tasks to do!</p>
+
+</div>
+
+<!--Now we need to extract the Angular logic into a separate script-->
+<script>
+
+  //Create a variable 'app' linked to the app defined in <div ng-app='app'>.
+  //Make sure the name in ng-app is the same as the name used here.
+  //The empty list is a required argument.
+  var app = angular.module("myApp", []);
+
+  //Define a controller for the app - this is code that does something.
+  //  $scope is an object holding references to all of the ng-model variables
+  // that you've created in the HTML, and you can add more variables (like tasklist)
+  //to it, and then you can use those in your HTML.
+  app.controller('controller', function($scope){
+
+    //Define an empty tasklist.
+    $scope.tasklist = [];
+
+    //Add a function to add the task argument to the tasklist.
+    //Notice we need to use $scope.tasklist
+    //$scope is passed in when the controller is created
+    //This function is called when the submit button is pressed.
+    //Any function defined with ng-click (or other event handling directives)
+    //can be created in this way.
+    $scope.addTask = function(task) {
+      $scope.tasklist.push(task);
+    }
+
+    //In future apps, these functions can talk to your server to obtain and update data.
+  })
+
+</script>
+</body>
+</html>
