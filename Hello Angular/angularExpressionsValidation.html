@@ -12,15 +12,17 @@
 <div ng-app="">
   <h2>Shopping Cart</h2>
   <form>
-    <label>Enter price of item</label>
-    <input type="number" ng-model="price">
+    <label>Enter price of item:
+      <input type="number" ng-model="price">
+    </label>
     <br>
-    <label>Enter quantity of item</label>
-    <input type="number" ng-model="quantity">
+    <label>Enter quantity of item:
+      <input type="number" ng-model="quantity">
+    </label>
   </form>
 
   <!--Notice the ng-show directive. This means only show this element if the expression is true.
-   So, this h2 is only show if "(price != undefined) && (quantity != undefined)" is true.
+   So, this h2 is only shown if "(price != undefined) && (quantity != undefined)" is true.
    In other words, while the price or the quantity is undefined - not filled in -
    this element is not shown (hidden).  There's also a ng-hide directive which does the opposite,
    sometimes the logic is easier to write. -->

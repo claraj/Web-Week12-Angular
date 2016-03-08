@@ -15,17 +15,22 @@
 <!--Can also define ng-app in the body or html or any other containing element. -->
 
 <div ng-app="">
-  <h2>Shopping Cart</h2>
+  <h2>Shopping Calculator</h2>
   <form>
-    <label>Enter price of item</label>
-    <input type="number" ng-model="price">  <!-- ng-model binds the value of the input box to the variable 'price' -->
+    <label>Enter price of item:
+      <!-- ng-model binds the value of the input box to the variable 'price' -->
+      <input type="number" ng-model="price">
+    </label>
     <br>
-    <label>Enter quantity of item</label>
-    <input type="number" ng-model="quantity">  <!-- And this ng-model binds this input box to 'quantity -->
+    <label>Enter quantity of item:
+      <!-- And this ng-model binds this input box to 'quantity' -->
+      <input type="number" ng-model="quantity">
+    </label>
   </form>
 
   <!-- Can do math or other processing with these variables. Angular will evaluate
-  any expressions in the {{ }} brackets. You can't write logic (loops, if statements) but you can do math.
+  any expressions in the {{ }} brackets.
+  You can't write logic (loops, if statements) but you can do math.
   -->
   <h2>The total price is {{ price * quantity }}</h2>
 </div>
